@@ -42,6 +42,22 @@ import android.telephony.TelephonyManager;
 import android.widget.TextView;
 import android.widget.Button;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+
+//for the web
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import java.io.IOException;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -69,6 +85,8 @@ public class MainActivity extends ActionBarActivity {
 
     //The IMEI of the phone
     String imeiDB;
+
+    String[] sendDB = new String[3];
 
 
     //Search for "send now" in the code for the moment when they need to be sent
@@ -113,6 +131,12 @@ public class MainActivity extends ActionBarActivity {
                 final EditText edittext = (EditText) findViewById(R.id.Student_Id);
                 String studentID = edittext.getText().toString();
                 studentDB = new String(studentID); //send now
+                sendDB[0] = imeiDB;
+                sendDB[1] = studentDB;
+                sendDB[2] = nfcDB;
+
+//                imeiDB;
+//                nfcDB;
 
                 //After entering the student ID, the text box will clear
                 edittext.setText("");
@@ -122,6 +146,40 @@ public class MainActivity extends ActionBarActivity {
         });
 
 
+
+    }
+
+
+    // this is the function that gets called when you click the button
+    public void send(View v)
+    {
+        // get the message from the message text box
+//        String msg = msgTextField.getText().toString();
+
+        // make sure the fields are not empty
+        if (sendDB[0].length()>0  && sendDB[1].length()>0 && sendDB[2].length()>0)
+        {
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost("http://yourwebsite.com/yourPhpScript.php");
+            try {
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+                nameValuePairs.add(new BasicNameValuePair("id", "12345"));
+                nameValuePairs.add(new BasicNameValuePair("message", studentDB));
+                httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                httpclient.execute(httppost);
+
+            } catch (ClientProtocolException e) {
+                // TODO Auto-generated catch block
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+            }
+
+        }
+        else
+        {
+            // display message if text fields are empty
+            Toast.makeText(getBaseContext(),"All field are required",Toast.LENGTH_SHORT).show();
+        }
 
     }
 

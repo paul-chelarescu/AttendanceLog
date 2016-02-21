@@ -56,6 +56,25 @@ public class MainActivity extends ActionBarActivity {
     TextView imei;
     Button mButton;
 
+    TextView nou;
+
+
+
+    //These 3 variables are what need to be sent to the server
+    //The NFC key
+    String nfcDB;
+
+    //The student name or ID
+    String studentDB;
+
+    //The IMEI of the phone
+    String imeiDB;
+
+
+    //Search for "send now" in the code for the moment when they need to be sent
+    //to the server
+
+
 
 
 
@@ -70,15 +89,22 @@ public class MainActivity extends ActionBarActivity {
 //        tglReadWrite = (ToggleButton)findViewById(R.id.tglReadWrite);
         txtTagContent = (TextView)findViewById(R.id.txtTagContent);
 
+
+
+
+        nou = (TextView) findViewById(R.id.nou);
+
+
         tel = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         imei = (TextView) findViewById(R.id.textView2);
         imei.setText(tel.getDeviceId().toString());
+
+
+        imeiDB = tel.getDeviceId().toString(); //send now
         txtTagContent.setEnabled(false);
+
+
 //        EditText.setEnabled(false);
-
-
-
-
 
         mButton = (Button)findViewById(R.id.button1);
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +112,12 @@ public class MainActivity extends ActionBarActivity {
                 //Here I get the input of the user
                 final EditText edittext = (EditText) findViewById(R.id.Student_Id);
                 String studentID = edittext.getText().toString();
-                imei.setText(studentID);
+                studentDB = new String(studentID); //send now
+
+                //After entering the student ID, the text box will clear
+                edittext.setText("");
+
+//                imei.setText(studentID);
             }
         });
 
@@ -127,7 +158,11 @@ public class MainActivity extends ActionBarActivity {
                     Toast.makeText(this, "No NDEF messages found!", Toast.LENGTH_SHORT).show();
                 }
 
+//            nfcDB = txtTagContent.getText().toString();
+            nfcDB = ((TextView) findViewById(R.id.txtTagContent)).getText().toString();
+            //send now
 
+//            nou.setText(nfcDB + " aadf ");
 
 
         }

@@ -33,12 +33,7 @@
 
 
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtTagContent"
-        android:layout_below="@+id/tglReadWrite"
-        />
+
 
     <!--<EditText-->
         <!--android:id="@+id/edittext"-->
@@ -64,16 +59,7 @@
         <!--android:textSize="15sp"-->
         <!--android:text="IMEI" />-->
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="20dp"
-        android:background="#0099FF"
-        android:text="Submit"
-        android:textColor="#FFFFFF" />
+
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -92,6 +78,16 @@
         android:paddingRight="10dip"
         android:paddingTop="10dip"
         android:textSize="17dip"/>
+
+    <!--<EditText-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/txtTagContent"-->
+        <!--android:layout_below="@+id/tglReadWrite"-->
+        <!--android:paddingLeft="10dip"-->
+        <!--android:paddingRight="10dip"-->
+        <!--android:layout_marginTop="50dip"/>-->
+
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -111,4 +107,40 @@
         android:paddingRight="10dip"
         android:paddingTop="10dip"
         android:singleLine="true"/>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="20dp"
+        android:background="#0099FF"
+        android:text="Submit"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTagContent"
+        android:layout_below="@+id/tglReadWrite"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="10dip"
+        android:textSize="17dip"
+        android:layout_marginTop="60dip"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nou"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="10dip"
+        android:textSize="17dip"
+        android:layout_marginTop="10dip"
+        android:gravity="center"
+        />
 </LinearLayout>

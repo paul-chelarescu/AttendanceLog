@@ -6,4 +6,4 @@ Can you cheat a system where you need to scan an NFC tag in an app that has your
 
 Students download the android app, input their university unique ID and scan the NFC tag at the entrance of the lecture theatre. The app sends the tag info as well as the ID to the lecturere's preffered attendance taking database. Convenient and fast to use.
 
-[Logo](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/350/208/datas/gallery.jpg)
+![Logo](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/350/208/datas/gallery.jpg)
